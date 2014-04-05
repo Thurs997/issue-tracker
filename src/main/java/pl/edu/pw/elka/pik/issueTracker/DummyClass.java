@@ -3,6 +3,7 @@ package pl.edu.pw.elka.pik.issueTracker;
 
 public class DummyClass {
 
+    //dummy comment
     private String dummyVariable;
 
     public String getDummyVariable() {
