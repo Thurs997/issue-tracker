@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="issue-tracker (exploded)">
+    <output-path>$PROJECT_DIR$/out/artifacts/issue_tracker__exploded_</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="issue-tracker/web/Web Gradle" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="issue-tracker" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: hibernate-core-3.6.7.Final" />
+          <element id="library" level="project" name="Gradle: spring-core-2.5" />
+          <element id="library" level="project" name="Gradle: antlr-2.7.6" />
+          <element id="library" level="project" name="Gradle: commons-collections-3.1" />
+          <element id="library" level="project" name="Gradle: dom4j-1.6.1" />
+          <element id="library" level="project" name="Gradle: slf4j-api-1.6.1" />
+          <element id="library" level="project" name="Gradle: hibernate-commons-annotations-3.2.0.Final" />
+          <element id="library" level="project" name="Gradle: hibernate-jpa-2.0-api-1.0.1.Final" />
+          <element id="library" level="project" name="Gradle: jta-1.1" />
+          <element id="library" level="project" name="Gradle: commons-logging-1.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/issue_tracker__exploded_/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
