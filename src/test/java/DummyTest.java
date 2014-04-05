@@ -9,7 +9,7 @@ public class DummyTest {
     @Test
     public void testDummyClass() {
         DummyClass dummyObject = new DummyClass();
-        dummyObject.setDummyVar("dummyValue")a;
-        assertEquals("dummyValue", dummyObject.getDummyVar());
+        dummyObject.setDummyVar("dummyValue");
+        assertEquals("dummyVaalue", dummyObject.getDummyVar());
     }
 }
