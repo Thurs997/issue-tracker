@@ -10,6 +10,6 @@ public class DummyTest {
     public void testDummyClass() {
         DummyClass dummyObject = new DummyClass();
         dummyObject.setDummyVar("dummyValue");
-        assertEquals("dummyVaalue", dummyObject.getDummyVar());
+        assertEquals("dummyValue", dummyObject.getDummyVar());
     }
 }
