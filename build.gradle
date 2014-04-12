@@ -4,6 +4,7 @@ apply plugin: 'war'
 
 
 sourceCompatibility = 1.7
+name = 'issue-tracker'
 version = '1.0'
 
 repositories {
