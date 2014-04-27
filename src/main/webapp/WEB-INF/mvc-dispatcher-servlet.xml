@@ -16,7 +16,7 @@
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
-	<bean
+	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/pages/</value>
@@ -25,10 +25,16 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">projectManagerController</prop>
+            </props>
+        </property>
+    </bean>
 	<import resource="classpath*:/applicationContext.xml" />
 
-	<bean id="mainController" class="pl.edu.pw.elka.pik.issueTracker.MainController" />
+	<bean id="projectManagerController" class="pl.edu.pw.elka.pik.issueTracker.ProjectManagerController" />
 
-	
+
 </beans>
