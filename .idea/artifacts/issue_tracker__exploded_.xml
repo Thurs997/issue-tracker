@@ -9,7 +9,6 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: hibernate-core-3.6.7.Final" />
-          <element id="library" level="project" name="Gradle: spring-core-2.5" />
           <element id="library" level="project" name="Gradle: antlr-2.7.6" />
           <element id="library" level="project" name="Gradle: commons-collections-3.1" />
           <element id="library" level="project" name="Gradle: dom4j-1.6.1" />
@@ -17,7 +16,16 @@
           <element id="library" level="project" name="Gradle: hibernate-commons-annotations-3.2.0.Final" />
           <element id="library" level="project" name="Gradle: hibernate-jpa-2.0-api-1.0.1.Final" />
           <element id="library" level="project" name="Gradle: jta-1.1" />
-          <element id="library" level="project" name="Gradle: commons-logging-1.1" />
+          <element id="library" level="project" name="Gradle: spring-webmvc-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-core-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-logging-1.1.1" />
+          <element id="library" level="project" name="Gradle: spring-beans-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-expression-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: aopalliance-1.0" />
+          <element id="library" level="project" name="Gradle: spring-aop-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-context-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-web-3.2.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: jstl-1.1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">
