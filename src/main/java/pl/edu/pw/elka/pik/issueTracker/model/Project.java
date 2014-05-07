@@ -7,6 +7,7 @@ import org.hibernate.annotations.Entity;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -14,6 +15,9 @@ import static javax.persistence.GenerationType.IDENTITY;
  * Created by lucas on 27.04.14.
  */
 @Entity
+@Table(name="t_project")
+@DynamicInsert(true)
+@DynamicUpdate(true)
 public class Project implements Serializable {
     private Integer id;
     private String name;
