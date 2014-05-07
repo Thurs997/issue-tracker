@@ -10,6 +10,7 @@ import pl.edu.pw.elka.pik.issueTracker.model.AddProjectForm;
 import pl.edu.pw.elka.pik.issueTracker.model.Project;
 import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
 
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ import java.util.Map;
 @Controller
 public class ProjectManagerController {
 
-    @Autowired
+    @PersistenceContext
     private ProjectFacade projectFacade;
 
     @RequestMapping(value="index/list-projects", method= RequestMethod.GET)
