@@ -27,7 +27,7 @@
 <body>
 <h1>Dodaj projekt</h1>
 
-<form:form action="${pageContext.servletContext.contextPath}/index.htm" commandName="index">
+<form:form action="${pageContext.servletContext.contextPath}/index" method="post">
 
     <div>
         <form:label cssClass="label" path="name">Nazwa: </form:label>
