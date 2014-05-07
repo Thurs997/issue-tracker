@@ -25,13 +25,7 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="index.htm">projectManagerController</prop>
-            </props>
-        </property>
-    </bean>
+
 	<import resource="classpath*:/applicationContext.xml" />
 
 	<bean id="projectManagerController" class="pl.edu.pw.elka.pik.issueTracker.ProjectManagerController" />
