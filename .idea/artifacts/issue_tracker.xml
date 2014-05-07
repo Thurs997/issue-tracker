@@ -36,6 +36,7 @@
           <element id="library" level="project" name="Gradle: slf4j-api-1.6.1" />
           <element id="library" level="project" name="Gradle: jcl-over-slf4j-1.6.1" />
           <element id="library" level="project" name="Gradle: aspectjrt-1.6.12" />
+          <element id="library" level="project" name="Gradle: slf4j-simple-1.6.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
