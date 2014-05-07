@@ -41,7 +41,7 @@
 </form:form>
 
 <hr/>
-<a href="${pageContext.servletContext.contextPath}/index/list-projects.htm">Show all users</a>
+<a href="${pageContext.servletContext.contextPath}/index/list-projects">Show all users</a>
 <div>
     <h2>Lista projektów</h2>
 

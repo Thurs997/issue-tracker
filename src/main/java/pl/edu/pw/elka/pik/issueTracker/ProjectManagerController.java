@@ -29,7 +29,13 @@ public class ProjectManagerController {
         //return back to index.jsp
         model.put("projects", projects);
 
-        return "index";
+        return "AddProject";
+    }
+
+    @Transactional
+    @RequestMapping(value = "index", method = RequestMethod.GET)
+    public String addProject() {
+        return "AddProject";
     }
 
     @Transactional
@@ -38,7 +44,7 @@ public class ProjectManagerController {
         Project project = new Project();
         project.setName(form.getName());
         projectFacade.create(project);
-        return "index";
+        return "AddProject";
     }
 
 }
