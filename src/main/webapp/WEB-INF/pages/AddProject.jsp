@@ -42,7 +42,7 @@
 
 <hr/>
 <a href="${pageContext.servletContext.contextPath}/index/list-projects">Show all users</a>
-<div>
+<div>1.2
     <h2>Lista projektów</h2>
 
     <c:if test="${not empty lists}">

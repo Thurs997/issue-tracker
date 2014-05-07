@@ -19,7 +19,6 @@
           <element id="library" level="project" name="Gradle: spring-aop-3.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: spring-context-3.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: spring-web-3.2.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: jstl-1.1.2" />
           <element id="library" level="project" name="Gradle: hibernate-entitymanager-4.1.4.Final" />
           <element id="library" level="project" name="Gradle: hsqldb-2.2.8" />
           <element id="library" level="project" name="Gradle: jboss-logging-3.1.0.GA" />
@@ -37,6 +36,7 @@
           <element id="library" level="project" name="Gradle: jcl-over-slf4j-1.6.1" />
           <element id="library" level="project" name="Gradle: aspectjrt-1.6.12" />
           <element id="library" level="project" name="Gradle: slf4j-simple-1.6.1" />
+          <element id="library" level="project" name="Gradle: jstl-1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

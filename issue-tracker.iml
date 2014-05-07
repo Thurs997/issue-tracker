@@ -72,8 +72,6 @@
     <orderEntry type="library" exported="" name="Gradle: spring-aop-3.2.2.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-context-3.2.2.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-web-3.2.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: jstl-1.1.2" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: jstl-1.1.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hibernate-entitymanager-4.1.4.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hsqldb-2.2.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: jboss-logging-3.1.0.GA" level="project" />
@@ -91,6 +89,8 @@
     <orderEntry type="library" exported="" name="Gradle: jcl-over-slf4j-1.6.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: aspectjrt-1.6.12" level="project" />
     <orderEntry type="library" exported="" name="Gradle: slf4j-simple-1.6.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jstl-1.2" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: jstl-1.2" level="project" />
   </component>
 </module>
 
