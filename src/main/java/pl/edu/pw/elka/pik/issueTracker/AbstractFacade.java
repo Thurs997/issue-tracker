@@ -11,7 +11,7 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public abstract class AbstractFacade<T> {
 
-    @PersistenceContext(unitName = "entityManager")
+    @PersistenceContext(unitName = "issue-tracker")
     private EntityManager entityManager;
 
     private Class<T> entityClass;
