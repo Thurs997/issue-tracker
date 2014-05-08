@@ -34,7 +34,7 @@ public class ProjectManagerController {
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public ModelAndView addProject() {
-        return new ModelAndView("addProject", "project", new Project());
+        return new ModelAndView("AddProject", "project", new Project());
     }
 
     //@Transactional
