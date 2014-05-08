@@ -3,6 +3,7 @@ package pl.edu.pw.elka.pik.issueTracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,20 +32,18 @@ public class ProjectManagerController {
 
         return "AddProject";
     }
-
+/*
     @Transactional
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String addProject() {
         return "AddProject";
     }
-
-    @Transactional
-    @RequestMapping(value = "index", method = RequestMethod.POST)
-    public String addProject(@ModelAttribute("index") AddProjectForm form) {
-        Project project = new Project();
-        project.setName(form.getName());
+*/
+    //@Transactional
+    @RequestMapping(value = "addProject", method = RequestMethod.POST)
+    public String addProject(@ModelAttribute("project") Project project, BindingResult bindingResult) {
         projectFacade.create(project);
-        return "AddProject";
+        return "redirect:index/list-projects";
     }
 
 }

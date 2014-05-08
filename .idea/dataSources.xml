@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3249779131">
+  <component name="DataSourceManagerImpl" format="xml" hash="3878295611">
     <data-source source="LOCAL" name="blog.example.memory" uuid="f1826d63-811b-4825-955e-cc482d5f8a09">
       <driver-ref>hsqldb.remote</driver-ref>
       <jdbc-driver>org.hsqldb.jdbcDriver</jdbc-driver>
@@ -9,6 +9,17 @@
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="pik.issue-tracker.memory" uuid="d909b081-cc0a-4a17-8564-caaf1ac9277e">
+      <driver-ref>hsqldb.remote</driver-ref>
+      <jdbc-driver>org.hsqldb.jdbcDriver</jdbc-driver>
+      <jdbc-url>jdbc:hsqldb:mem:spring</jdbc-url>
+      <user-name>sa</user-name>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.2.8/8231a3ff71ba5889f9e2d01ce13503cbdd4038e9/hsqldb-2.2.8.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="issue-tracker" uuid="7a96c84c-8e77-4423-9228-2ac5bfca7490">
       <driver-ref>hsqldb.remote</driver-ref>
       <jdbc-driver>org.hsqldb.jdbcDriver</jdbc-driver>
       <jdbc-url>jdbc:hsqldb:mem:spring</jdbc-url>

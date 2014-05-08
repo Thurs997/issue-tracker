@@ -27,18 +27,18 @@
 <body>
 <h1>Dodaj projekt</h1>
 
-<form action="<c:out value="${pageContext.servletContext.contextPath}" />/index" method="post">
+<form:form action="addProject" method="post">
 
     <div>
-        Nazwa:
-        <input type="text" name="name"/>
+        <form:label path="name">Nazwa:</form:label>
+        <form:input path="name"/>
     </div>
 
     <div>
         <input type="submit" value="Dodaj projekt"/>
     </div>
 
-</form>
+</form:form>
 
 <hr/>
 <a href="${pageContext.servletContext.contextPath}/index/list-projects">Show all users</a>
