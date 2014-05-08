@@ -39,9 +39,9 @@ public class ProjectManagerController {
 
     //@Transactional
     @RequestMapping(value = "add-project", method = RequestMethod.POST)
-    public String addProject(@ModelAttribute("project") Project project, BindingResult bindingResult) {
+    public String addProject(@ModelAttribute("Project") Project project, BindingResult bindingResult) {
         projectFacade.create(project);
-        return "redirect:index/list-projects";
+        return "redirect:list-projects";
     }
 
 }
