@@ -23,7 +23,7 @@ public class ProjectManagerController {
     @Autowired
     private ProjectFacade projectFacade;
 
-    @RequestMapping(value="index/list-projects", method= RequestMethod.GET)
+    @RequestMapping(value="list-projects", method= RequestMethod.GET)
     public String listProjects(Map<String, Object> model) {
         List<Project> projects = projectFacade.findAll();
 
@@ -39,7 +39,7 @@ public class ProjectManagerController {
     }
 
     //@Transactional
-    @RequestMapping(value = "addProject", method = RequestMethod.POST)
+    @RequestMapping(value = "add-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project, BindingResult bindingResult) {
         projectFacade.create(project);
         return "redirect:index/list-projects";

@@ -27,7 +27,7 @@
 <body>
 <h1>Dodaj projekt</h1>
 
-<form:form action="addProject" method="post">
+<form:form action="add-project" commandName="add-project" method="post">
 
     <div>
         <form:label path="name">Nazwa:</form:label>
