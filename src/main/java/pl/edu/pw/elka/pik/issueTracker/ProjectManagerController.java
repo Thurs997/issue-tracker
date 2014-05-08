@@ -2,12 +2,11 @@ package pl.edu.pw.elka.pik.issueTracker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.edu.pw.elka.pik.issueTracker.model.AddProjectForm;
+import org.springframework.web.servlet.ModelAndView;
 import pl.edu.pw.elka.pik.issueTracker.model.Project;
 import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
 
@@ -34,8 +33,8 @@ public class ProjectManagerController {
     }
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
-    public String addProject() {
-        return "AddProject";
+    public ModelAndView addProject() {
+        return new ModelAndView("addProject", "project", new Project());
     }
 
     //@Transactional
