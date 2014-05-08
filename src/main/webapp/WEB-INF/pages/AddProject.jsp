@@ -41,8 +41,8 @@
 </form:form>
 
 <hr/>
-<a href="${pageContext.servletContext.contextPath}/index/list-projects">Show all users</a>
-<div>1.2
+<a href="${pageContext.servletContext.contextPath}/index/list-projects">Pokaż projekty</a>
+<div>
     <h2>Lista projektów</h2>
 
     <c:if test="${not empty projects}">

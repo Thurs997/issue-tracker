@@ -32,13 +32,12 @@ public class ProjectManagerController {
 
         return "AddProject";
     }
-/*
-    @Transactional
+
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String addProject() {
         return "AddProject";
     }
-*/
+
     //@Transactional
     @RequestMapping(value = "addProject", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project, BindingResult bindingResult) {
