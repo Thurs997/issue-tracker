@@ -2,8 +2,7 @@ package pl.edu.pw.elka.pik.issueTracker.model;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Entity;
-
+import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
