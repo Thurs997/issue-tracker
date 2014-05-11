@@ -13,4 +13,5 @@
         </properties>
         <!--class>pl.edu.pw.elka.pik.issueTracker.model.Project</class-->
     </persistence-unit>
+
 </persistence>
