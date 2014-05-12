@@ -40,6 +40,7 @@ public class ProjectManagerController {
     //@Transactional
     @RequestMapping(value = "add-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("Project") Project project, BindingResult bindingResult) {
+        projectFacade.create(project);
         return "redirect:list-projects";
     }
 
