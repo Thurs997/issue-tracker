@@ -3,6 +3,7 @@ package pl.edu.pw.elka.pik.issueTracker;
 /**
  * Created by lucas on 27.04.14.
  */
+import org.hibernate.criterion.Order;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -49,6 +50,7 @@ public abstract class AbstractFacade<T> {
     public List<T> findAll() {
         CriteriaQuery cq = this.entityManager.getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
+        cq.orderBy(this.entityManager.getCriteriaBuilder().asc(cq.from(entityClass).get("id")));
         return this.entityManager.createQuery(cq).getResultList();
     }
 
