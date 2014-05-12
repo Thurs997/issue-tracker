@@ -26,20 +26,20 @@
 </head>
 <body>
 <h1>Dodaj projekt</h1>
+<c:if test="${not empty Project}">
+    <form:form action="add-project" commandName="Project" method="post">
 
-<form:form action="add-project" commandName="Project" method="post">
+        <div>
+            <form:label path="name">Nazwa:</form:label>
+            <form:input path="name"/>
+        </div>
 
-    <div>
-        <form:label path="name">Nazwa:</form:label>
-        <form:input path="name"/>
-    </div>
+        <div>
+            <input type="submit" value="Dodaj projekt"/>
+        </div>
 
-    <div>
-        <input type="submit" value="Dodaj projekt"/>
-    </div>
-
-</form:form>
-
+    </form:form>
+</c:if>
 <hr/>
 <a href="${pageContext.servletContext.contextPath}/index/list-projects">Pokaż projekty</a>
 <div>
