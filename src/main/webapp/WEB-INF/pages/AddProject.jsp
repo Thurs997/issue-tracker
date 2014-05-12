@@ -26,7 +26,7 @@
 </head>
 <body>
 <h1>Dodaj projekt</h1>
-<c:if test="${not empty Project}">
+<c:if test="${not empty project}">
     <form:form action="add-project" commandName="Project" method="post">
 
         <div>
@@ -41,7 +41,7 @@
     </form:form>
 </c:if>
 <hr/>
-<a href="${pageContext.servletContext.contextPath}/index/list-projects">Pokaż projekty</a>
+<a href="${pageContext.servletContext.contextPath}/list-projects">Pokaż projekty</a>
 <div>
     <h2>Lista projektów</h2>
 
