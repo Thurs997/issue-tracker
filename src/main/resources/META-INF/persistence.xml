@@ -11,7 +11,7 @@
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost/issuetracker"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
         <!--class>pl.edu.pw.elka.pik.issueTracker.model.Project</class-->
     </persistence-unit>
