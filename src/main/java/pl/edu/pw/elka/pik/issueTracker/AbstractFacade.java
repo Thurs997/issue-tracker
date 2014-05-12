@@ -3,6 +3,8 @@ package pl.edu.pw.elka.pik.issueTracker;
 /**
  * Created by lucas on 27.04.14.
  */
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
@@ -27,6 +29,7 @@ public abstract class AbstractFacade<T> {
         return this.entityManager;
     }
 
+    @Transactional
     public void create(T entity) {
         this.entityManager.persist(entity);
     }
