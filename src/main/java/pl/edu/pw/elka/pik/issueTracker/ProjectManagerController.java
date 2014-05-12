@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.edu.pw.elka.pik.issueTracker.model.Project;
 import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,8 @@ public class ProjectManagerController {
     }
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
-    public ModelAndView addProject() {
+    public ModelAndView addProject(HttpServletRequest request) {
+        request.setAttribute("Project", new Project());
         return new ModelAndView("AddProject", "project", new Project());
     }
 
