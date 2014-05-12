@@ -27,7 +27,7 @@ public class ProjectManagerController {
     public String listProjects(Map<String, Object> model) {
         List<Project> projects = projectFacade.findAll();
 
-        //return back to index.jsp
+        model.put("project", new Project());
         model.put("projects", projects);
 
         return "AddProject";
@@ -35,13 +35,12 @@ public class ProjectManagerController {
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public ModelAndView addProject(HttpServletRequest request) {
-        request.setAttribute("Project", new Project());
         return new ModelAndView("AddProject", "project", new Project());
     }
 
     //@Transactional
     @RequestMapping(value = "add-project", method = RequestMethod.POST)
-    public String addProject(@ModelAttribute("Project") Project project, BindingResult bindingResult) {
+    public String addProject(@ModelAttribute("project") Project project) {
         projectFacade.create(project);
         return "redirect:list-projects";
     }

@@ -26,7 +26,7 @@
 </head>
 <body>
 <h1>Dodaj projekt</h1>
-<form:form action="add-project" modelAttribute="Project" method="post">
+<form:form action="add-project" modelAttribute="project" method="post">
 
     <div>
         <form:label path="name">Nazwa:</form:label>
@@ -38,6 +38,7 @@
     </div>
 
 </form:form>
+
 <hr/>
 <a href="${pageContext.servletContext.contextPath}/list-projects">Pokaż projekty</a>
 <div>
