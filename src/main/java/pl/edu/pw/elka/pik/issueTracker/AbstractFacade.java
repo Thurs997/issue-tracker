@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
@@ -49,8 +50,9 @@ public abstract class AbstractFacade<T> {
 
     public List<T> findAll() {
         CriteriaQuery cq = this.entityManager.getCriteriaBuilder().createQuery();
-        cq.select(cq.from(entityClass));
-        cq.orderBy(this.entityManager.getCriteriaBuilder().asc(cq.from(entityClass).get("id")));
+        Root<T> c = cq.from(entityClass);
+        cq.select(c);
+        cq.orderBy(this.entityManager.getCriteriaBuilder().asc(c.get("id")));
         return this.entityManager.createQuery(cq).getResultList();
     }
 
