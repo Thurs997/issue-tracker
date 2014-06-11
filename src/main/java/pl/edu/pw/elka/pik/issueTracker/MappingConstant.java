@@ -12,7 +12,6 @@ public enum MappingConstant {
     MANAGE_PROJECT("ManageProject"),
     ADD_PROJECT("AddProject"),
 
-    LIST_ISSUES("ListIssues"),
     EDIT_ISSUE("EditIssue"),
     SHOW_ISSUE("ShowIssue");
 

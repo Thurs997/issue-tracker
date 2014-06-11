@@ -58,5 +58,4 @@ public abstract class AbstractFacade<T> {
         cq.orderBy(this.entityManager.getCriteriaBuilder().asc(c.get("id")));
         return this.entityManager.createQuery(cq).getResultList();
     }
-
 }

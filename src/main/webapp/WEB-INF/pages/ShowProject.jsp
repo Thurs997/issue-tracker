@@ -16,10 +16,10 @@
             <div class="page-header"><h1>Projekt ${project.name} </h1></div>
             <c:choose>
                 <c:when test="${not empty project.issues}">
-                    <h2>Zagadnienia</h2>
+                    <h3>Zagadnienia</h3>
                     <ul>
                         <c:forEach items="${project.issues}" var="issue">
-                            <li>${issue.name}</li>
+                            <li><a href${issue.name}</li>
                         </c:forEach>
                     </ul>
                 </c:when>
