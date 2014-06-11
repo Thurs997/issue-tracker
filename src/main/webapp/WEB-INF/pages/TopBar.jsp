@@ -7,7 +7,7 @@
     </div>
     <div id="userChange">
         <form:form action="change-user" modelAttribute="user" method="post">
-            <form:select path="user" onchange="this.form.submit()">
+            <form:select class="form-control" path="user" onchange="this.form.submit()">
                 <form:options items="${availableUsers}" itemLabel="label" />
             </form:select>
         </form:form>
