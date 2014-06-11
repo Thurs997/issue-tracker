@@ -16,8 +16,6 @@ public class ProjectManagerController extends AbstractUserDataController {
 
     @Autowired
     private ProjectFacade projectFacade;
-    @Autowired
-    private User user;
 
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String listProjects(Map<String, Object> model) {
@@ -31,7 +29,6 @@ public class ProjectManagerController extends AbstractUserDataController {
     @RequestMapping(value = "/add-project", method = RequestMethod.GET)
     public String addProjectForm(Map<String, Object> model) {
         fillUserData(model);
-        model.put("user", user);
 
         return "AddProject";
     }

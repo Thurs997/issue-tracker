@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: lucas
   Date: 11.06.14
-  Time: 13:58
+  Time: 18:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-//TODO formularz dodawania issue, action przekierowuje na /add-issue, dane POSTem
-// wchodzi ${projects} żeby było z czego wybierać
+//TODO lista issues
+//wchodzi ${issues}, może być puste
 </body>
 </html>

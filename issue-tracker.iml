@@ -32,7 +32,7 @@
           <factory-entry name="blog.example" />
           <factory-entry name="blog.example.memory" value="f1826d63-811b-4825-955e-cc482d5f8a09" />
           <factory-entry name="entityManager" />
-          <factory-entry name="issue-tracker" value="42865613-ba45-4f46-8303-d2a08ffd192a" />
+          <factory-entry name="issue-tracker" value="2778dc6e-fe46-4761-9033-955c76d9e752" />
           <factory-entry name="pik.issue-tracker.memory" value="d909b081-cc0a-4a17-8564-caaf1ac9277e" />
           <factory-entry name="yourUnitName" value="dataSource" />
         </datasource-mapping>
