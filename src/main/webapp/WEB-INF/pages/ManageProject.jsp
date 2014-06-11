@@ -20,10 +20,11 @@
   <p id="infoLabel">Zmień nazwę projektu</p>
      <form:form action="/manage-project" modelAttribute="project" method="post">
         <form:hidden path="id" />
-         <form:input id="nameEntry" class="form-control" path="name"/>
-
-         <div>
-             <input id="addButton" type="submit" class="btn btn-default btn-lg" value="OK"/>
+         <div class="input-group">
+           <form:input class="form-control" path="name"/>
+           <div class="input-group-btn">
+             <input type="submit" class="btn btn-default" value="Ustaw"/>
+           </div>
          </div>
 
      </form:form>
