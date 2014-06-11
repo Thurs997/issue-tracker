@@ -1,9 +1,11 @@
 package pl.edu.pw.elka.pik.issueTracker.model;
 
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import java.util.Date;
 
@@ -18,6 +20,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @DynamicUpdate(true)
 public class Issue {
     private Long id;
+    private Project project;
     private String name;
     private Type type;
     private Date created;
@@ -30,6 +33,13 @@ public class Issue {
     @Column(name = "ID")
     public Long getId() {
         return id;
+    }
+
+    @ManyToOne
+    @Cascade({CascadeType.MERGE, CascadeType.SAVE_UPDATE})
+    @JoinColumn(name = "PROJECT_ID")
+    public Project getProject() {
+        return project;
     }
 
     @Column(name = "NAME", unique = true, nullable = false, length = 40)
@@ -65,6 +75,10 @@ public class Issue {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public void setName(String name) {

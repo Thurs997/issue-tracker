@@ -1,11 +1,12 @@
 package pl.edu.pw.elka.pik.issueTracker.model;
 
 import org.hibernate.FetchMode;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +26,8 @@ public class Project implements Serializable {
     private List<Issue> issues;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="ISSUE_ID")
+    @Cascade({CascadeType.ALL})
+    @JoinColumn(name="PROJECT_ID")
     public List<Issue> getIssues() {
         return issues;
     }
