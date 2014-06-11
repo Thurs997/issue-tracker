@@ -17,5 +17,13 @@ public abstract class AbstractUserDataController {
         model.put("availableUsers", User.Type.values());
     }
 
+    protected boolean userIsAdmin() {
+        return user.isAdmin();
+    }
+
+    protected boolean userIsManager() {
+        return user.isManager();
+    }
+
 
 }
