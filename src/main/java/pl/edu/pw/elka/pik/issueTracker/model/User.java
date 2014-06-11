@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class User implements Serializable {
-    private Type user;
+    private Type user = Type.USER;
 
     public Type getUser() {
         return user;
@@ -18,6 +18,15 @@ public class User implements Serializable {
     public void setUser(Type user) {
         this.user = user;
     }
+
+    public boolean isManager(){
+        return user.equals(Type.MANAGER) || user.equals(Type.ADMIN);
+    }
+
+    public boolean isAdmin(){
+        return user.equals(Type.ADMIN);
+    }
+
 
     public enum Type{
         USER("Użytkownik"), MANAGER("Kierownik"), ADMIN("Administrator");

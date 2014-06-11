@@ -24,8 +24,17 @@ public class ProjectManagerController {
         List<Project> projects = projectFacade.findAll();
 
         model.put("user", user);
-        model.put("project", new Project());
         model.put("projects", projects);
+        model.put("availableUsers", User.Type.values());
+
+        return "ListProjects";
+    }
+
+    @RequestMapping(value = "/add-project", method = RequestMethod.GET)
+    public String addProjectForm(Map<String, Object> model) {
+
+        model.put("user", user);
+        model.put("project", new Project());
         model.put("availableUsers", User.Type.values());
 
         return "AddProject";
