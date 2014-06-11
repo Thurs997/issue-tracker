@@ -1,17 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lucas
-  Date: 27.04.14
-  Time: 14:28
-  To change this template use File | Settings | File Templates.
---%>
-<!DOCTYPE html>
-
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -21,49 +12,50 @@
 </head>
 <body>
 <%@include file="TopBar.jsp"%>
-<h1>Dodaj projekt</h1>
-<form:form action="add-project" modelAttribute="project" method="post">
+<div id="content">
+    <h1>Dodaj projekt</h1>
+    <form:form action="add-project" modelAttribute="project" method="post">
 
-    <div>
-        <form:label path="name">Nazwa:</form:label>
-        <form:input path="name"/>
-    </div>
-
-    <div>
-        <input type="submit" value="Dodaj projekt"/>
-    </div>
-
-</form:form>
-
-<hr/>
-<a href="${pageContext.servletContext.contextPath}/list-projects">Pokaż projekty</a>
-<div>
-    <h2>Lista projektów</h2>
-
-    <c:if test="${not empty projects}">
         <div>
-            <h3>Projekty:</h3>
-
-            <table border="1">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nazwa</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="project" items="${projects}">
-                    <tr>
-                        <td><c:out value="${project.id}"/></td>
-                        <td><c:out value="${project.name}"/></td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-
+            <form:label path="name">Nazwa:</form:label>
+            <form:input path="name"/>
         </div>
-    </c:if>
-</div>
 
+        <div>
+            <input type="submit" value="Dodaj projekt"/>
+        </div>
+
+    </form:form>
+
+    <hr/>
+    <a href="${pageContext.servletContext.contextPath}/list-projects">Pokaż projekty</a>
+    <div>
+        <h2>Lista projektów</h2>
+
+        <c:if test="${not empty projects}">
+            <div>
+                <h3>Projekty:</h3>
+
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nazwa</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="project" items="${projects}">
+                        <tr>
+                            <td><c:out value="${project.id}"/></td>
+                            <td><c:out value="${project.name}"/></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
+            </div>
+        </c:if>
+    </div>
+</div>
 </body>
 </html>

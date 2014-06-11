@@ -35,5 +35,5 @@ dependencies {
 }
 task deploy(type: Copy){
     from war
-    into "/usr/local/apache-tomcat-7.0.53/webapps"
+    into "/opt/apache-tomcat-7.0.54/webapps"
 }

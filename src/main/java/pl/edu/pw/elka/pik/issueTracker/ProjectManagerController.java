@@ -24,7 +24,7 @@ public class ProjectManagerController {
     @Autowired
     private User user;
 
-    @RequestMapping(value="list-projects", method= RequestMethod.GET)
+    @RequestMapping(value="/", method= RequestMethod.GET)
     public String listProjects(Map<String, Object> model) {
         List<Project> projects = projectFacade.findAll();
 
@@ -36,22 +36,18 @@ public class ProjectManagerController {
         return "AddProject";
     }
 
-    @RequestMapping(value = "index", method = RequestMethod.GET)
-    public ModelAndView addProject(HttpServletRequest request) {
-        return new ModelAndView("AddProject", "project", new Project());
-    }
-
     //@Transactional
-    @RequestMapping(value = "add-project", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project) {
         projectFacade.create(project);
         return "redirect:list-projects";
     }
 
-    @RequestMapping(value = "change-user", method = RequestMethod.POST)
-    public String changeUser(@ModelAttribute("user") User user) {
+    @RequestMapping(value = "/change-user", method = RequestMethod.POST)
+    public String changeUser(@ModelAttribute("user") User user, HttpServletRequest request) {
         this.user.setUser(user.getUser());
-        return "redirect:list-projects";
+        String referer = request.getHeader("Referer");
+        return "redirect:"+referer;
     }
 
 }

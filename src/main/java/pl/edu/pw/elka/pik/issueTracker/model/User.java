@@ -16,6 +16,20 @@ public class User implements Serializable {
     }
 
     public enum Type{
-        USER, MANAGER, ADMIN
+        USER("Użytkownik"), MANAGER("Kierownik"), ADMIN("Administrator");
+
+        private String label;
+
+        Type(String label){
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
+        }
     }
 }
