@@ -14,7 +14,6 @@
     <title>Project</title>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" />
 </head>
-</head>
 <body>
 <%@ include file="TopBar.jsp" %>
 <c:choose>
