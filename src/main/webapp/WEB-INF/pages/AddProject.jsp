@@ -18,7 +18,7 @@
             <form:form action="add-project" modelAttribute="project" method="post">
 
                 <p>Wprowadź nazwę projektu</p>
-                <form:input id="nameEntry" class="form-control" placeholder="Nazwa projektu" path="name"/>
+                <form:input id="nameEntry" class="form-control" path="name"/>
 
                 <div>
                     <input id="addButton" type="submit" class="btn btn-default btn-lg" value="Dodaj projekt"/>

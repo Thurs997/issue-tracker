@@ -4,7 +4,7 @@
 <div id="topBar">
     <nav class="navbar navbar-default" role="navigation">
     <div id="logo">
-        <img src="<c:url value="/resources/img/logo.png" />" />
+        <a href="/"><img src="<c:url value="/resources/img/logo.png" />" /></a>
     </div>
     <div id="userChange">
         <form:form action="change-user" modelAttribute="user" method="post">

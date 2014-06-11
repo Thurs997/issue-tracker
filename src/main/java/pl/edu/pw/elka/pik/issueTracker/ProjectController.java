@@ -36,4 +36,10 @@ public class ProjectController extends AbstractUserDataController {
         return MappingConstant.MANAGE_PROJECT.toString();
 
     }
+
+    @RequestMapping(value = "/manage-project", method = RequestMethod.POST)
+    public String addProject(@ModelAttribute("project") Project project) {
+        projectFacade.edit(project);
+        return MappingConstant.REDIRECT_ROOT.toString();
+    }
 }
