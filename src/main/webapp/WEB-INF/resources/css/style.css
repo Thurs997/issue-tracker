@@ -35,11 +35,8 @@
     padding: 0;
 }
 
-#userChange form{
+#userChange select{
     margin-right: 10px;
-}
-
-#userChange input{
     margin-top: 16px;
 }
 

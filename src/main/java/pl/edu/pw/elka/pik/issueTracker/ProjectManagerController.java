@@ -36,18 +36,10 @@ public class ProjectManagerController {
         return "AddProject";
     }
 
-    //@Transactional
     @RequestMapping(value = "/add-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project) {
         projectFacade.create(project);
         return "redirect:/";
-    }
-
-    @RequestMapping(value = "/change-user", method = RequestMethod.POST)
-    public String changeUser(@ModelAttribute("user") User user, HttpServletRequest request) {
-        this.user.setUser(user.getUser());
-        String referer = request.getHeader("Referer");
-        return "redirect:"+referer;
     }
 
 }
