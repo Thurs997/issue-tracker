@@ -6,7 +6,6 @@ import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
 import java.util.Date;
 import java.util.List;
 
@@ -22,12 +21,14 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Issue {
     private Long id;
     private Project project;
+    private Status status;
     private String name;
     private Type type;
     private Date created;
     private Date completed;
     private Integer priority = 0;
     private String assignee;
+    private String description;
     private List<Comment> comments;
 
     @Id
@@ -42,6 +43,12 @@ public class Issue {
     @JoinColumn(name = "PROJECT_ID")
     public Project getProject() {
         return project;
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS", nullable = false)
+    public Status getStatus() {
+        return status;
     }
 
     @Column(name = "NAME", unique = false, nullable = false, length = 40)
@@ -75,6 +82,11 @@ public class Issue {
         return assignee;
     }
 
+    @Column(name = "DESCRIPTION", nullable = false, length = 1000)
+    public String getDescription() {
+        return description;
+    }
+
     @OneToMany(fetch = FetchType.LAZY)
     @Cascade({CascadeType.ALL})
     @JoinColumn(name="ISSUE_ID")
@@ -88,6 +100,10 @@ public class Issue {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public void setName(String name) {
@@ -114,14 +130,45 @@ public class Issue {
         this.assignee = assignee;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
     public enum Type {
-        BUG,
-        ENHANCEMENT,
-        DUPLICATE,
-        INVALID
+        BUG("Błąd"),
+        ENHANCEMENT("Usprawnienie");
+
+        String name;
+
+        public String getName() {
+            return name;
+        }
+
+        Type(String name){
+            this.name = name;
+        }
+    }
+
+    public enum Status {
+        OPEN("Otwarte"),
+        ON_HOLD("Wstrzymane"),
+        IN_PROGRESS("W toku"),
+        RESOLVED("Rozwiązane"),
+        DUPLICATE("Duplikat"),
+        WONT_FIX("Nie błąd");
+
+        String name;
+
+        public String getName() {
+            return name;
+        }
+
+        Status(String name){
+            this.name = name;
+        }
     }
 }

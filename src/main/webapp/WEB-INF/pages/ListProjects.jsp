@@ -38,9 +38,9 @@
                                     <tr>
                                         <td class="col-md-1"><c:out value="${status.count}"/></td>
                                         <td class="col-md-5"><c:out value="${project.name}"/></td>
-                                        <td class="col-md-1"><a href="/show-project?projectId=${project.id}">Zawartość</a></td>
+                                        <td class="col-md-1"><a href="/show-project/${project.id}">Zawartość</a></td>
                                         <c:if test="${user.manager}">
-                                            <td class="col-md-1"><a href="/manage-project?projectId=${project.id}">Zarządzaj</a></td>
+                                            <td class="col-md-1"><a href="/manage-project/${project.id}">Zarządzaj</a></td>
                                         </c:if>
                                     </tr>
                                 </c:forEach>
