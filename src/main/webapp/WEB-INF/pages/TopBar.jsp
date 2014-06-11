@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <div id="topBar">
+    <nav class="navbar navbar-default" role="navigation">
     <div id="logo">
         <img src="<c:url value="/resources/img/logo.png" />" />
     </div>
@@ -12,4 +13,5 @@
             </form:select>
         </form:form>
     </div>
+    </nav>
 </div>
