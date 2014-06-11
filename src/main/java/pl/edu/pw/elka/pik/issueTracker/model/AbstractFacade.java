@@ -34,11 +34,13 @@ public abstract class AbstractFacade<T> {
     @Transactional
     public void create(T entity) {
         this.entityManager.persist(entity);
+        this.entityManager.refresh(entity);
     }
 
     @Transactional
     public void edit(T entity) {
         this.entityManager.merge(entity);
+        this.entityManager.refresh(entity);
     }
 
     @Transactional

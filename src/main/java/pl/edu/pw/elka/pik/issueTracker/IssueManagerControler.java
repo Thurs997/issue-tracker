@@ -2,13 +2,8 @@ package pl.edu.pw.elka.pik.issueTracker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import pl.edu.pw.elka.pik.issueTracker.model.Issue;
-import pl.edu.pw.elka.pik.issueTracker.model.IssueFacade;
-import pl.edu.pw.elka.pik.issueTracker.model.Project;
-import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
+import org.springframework.web.bind.annotation.*;
+import pl.edu.pw.elka.pik.issueTracker.model.*;
 
 import java.util.List;
 import java.util.Map;
@@ -33,17 +28,15 @@ public class IssueManagerControler extends AbstractUserDataController {
         return MappingConstant.LIST_ISSUES.toString();
     }
 
-    @RequestMapping(value = "/add-issue", method = RequestMethod.GET)
-    public String addIssueForm(Map<String, Object> model) {
+    @RequestMapping(value = "/project/{projectId}/add-issue", method = RequestMethod.GET)
+    public String addIssueForm(@PathVariable Long projectId, Map<String, Object> model) {
         fillUserData(model);
-        List<Project> projects = projectFacade.findAll();
-        model.put("projects", projects);
-        return MappingConstant.EDIT_ISSUE.toString();
-    }
+        Project project = projectFacade.find(projectId);
+        Issue issue = new Issue();
+        issue.setProject(project);
 
-    @RequestMapping(value = "/add-issue", method = RequestMethod.POST)
-    public String addProject(@ModelAttribute("issue") Issue issue) {
-        issueFacade.create(issue);
-        return MappingConstant.REDIRECT_LIST_ISSUES.toString();
+        model.put("issue", issue);
+        model.put("issueTypes", Issue.Type.values());
+        return MappingConstant.EDIT_ISSUE.toString();
     }
 }
