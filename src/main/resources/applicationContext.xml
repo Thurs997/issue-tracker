@@ -45,14 +45,8 @@
         </property>
     </bean>
 
-
-
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
-
-    <bean id="user" class="pl.edu.pw.elka.pik.issueTracker.model.User" scope="session">
-        <aop:scoped-proxy/>
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
