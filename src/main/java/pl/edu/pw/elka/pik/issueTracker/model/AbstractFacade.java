@@ -40,7 +40,6 @@ public abstract class AbstractFacade<T> {
     @Transactional
     public void edit(T entity) {
         this.entityManager.merge(entity);
-        this.entityManager.refresh(entity);
     }
 
     @Transactional
