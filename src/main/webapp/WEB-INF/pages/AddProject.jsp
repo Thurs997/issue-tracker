@@ -12,19 +12,15 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--@elvariable id="projects" type="java.util.List<pl.edu.pw.elka.pik.issueTracker.model.Project>"--%>
 
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Hibernate Via JPA Example</title>
-    <style type="text/css">
-        .label {
-            display: block;
-        }
-    </style>
+    <title>Projects</title>
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" />
 </head>
 <body>
+<%@include file="TopBar.jsp"%>
 <h1>Dodaj projekt</h1>
 <form:form action="add-project" modelAttribute="project" method="post">
 
