@@ -1,47 +1,49 @@
 package pl.edu.pw.elka.pik.issueTracker.model;
 
-import org.hibernate.FetchMode;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
 /**
- * Created by lucas on 27.04.14.
+ * Created by lucas on 11.06.14.
  */
 @Entity
-@Table(name="t_project")
+@Table(name="t_issue")
 @DynamicInsert(true)
 @DynamicUpdate(true)
-public class Project implements Serializable {
-    private Long id;
+public class Issue {
+    private Integer id;
     private String name;
-    private List<Issue> issues;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="ISSUE_ID")
-    public List<Issue> getIssues() {
-        return issues;
+    public enum TYPE {
+        BUG,
+        ENCHANCEMENT,
+        DUPLICATE,
+        INVALID
     }
 
-    public void setIssues(List<Issue> issues) {
-        this.issues = issues;
+    public TYPE getType() {
+        return type;
     }
+
+    public void setType(TYPE type) {
+        this.type = type;
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TYPE", nullable = false)
+    private TYPE type;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,5 +55,4 @@ public class Project implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
 }

@@ -31,6 +31,10 @@
                                     <tr>
                                         <td><c:out value="${project.id}"/></td>
                                         <td><c:out value="${project.name}"/></td>
+                                        <td><a href="/show-project?projectId=${project.id}">Zawartość</a></td>
+                                        <c:if test="${user.manager}">
+                                            <td><a href="/manage-project?projectId=${project.id}">Zarządzaj</a></td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
                             </c:when>

@@ -32,21 +32,23 @@
           <factory-entry name="blog.example" />
           <factory-entry name="blog.example.memory" value="f1826d63-811b-4825-955e-cc482d5f8a09" />
           <factory-entry name="entityManager" />
-          <factory-entry name="issue-tracker" value="7a96c84c-8e77-4423-9228-2ac5bfca7490" />
           <factory-entry name="pik.issue-tracker.memory" value="d909b081-cc0a-4a17-8564-caaf1ac9277e" />
           <factory-entry name="yourUnitName" value="dataSource" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
-    <facet type="web" name="Web Gradle">
+    <facet type="web" name="Web Gradle : issue-tracker-1.0.war">
       <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
         <webroots>
-          <root url="file://$MODULE_DIR$/src/main/webapp" relative="" />
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -68,7 +70,6 @@
     <orderEntry type="library" exported="" name="Gradle: dom4j-1.6.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hibernate-jpa-2.0-api-1.0.1.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-webmvc-3.2.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: servlet-api-2.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-core-3.2.2.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-logging-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: spring-beans-3.2.2.RELEASE" level="project" />
@@ -94,10 +95,9 @@
     <orderEntry type="library" exported="" name="Gradle: jcl-over-slf4j-1.6.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: aspectjrt-1.6.12" level="project" />
     <orderEntry type="library" exported="" name="Gradle: slf4j-simple-1.6.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: jstl-1.2" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: jstl-1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: mysql-connector-java-5.1.16" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: mysql-connector-java-5.1.16" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: servlet-api-2.5" level="project" />
   </component>
 </module>
 

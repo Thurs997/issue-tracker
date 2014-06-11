@@ -24,8 +24,8 @@ public class ProjectManagerController {
         List<Project> projects = projectFacade.findAll();
 
         model.put("user", user);
-        model.put("projects", projects);
         model.put("availableUsers", User.Type.values());
+        model.put("projects", projects);
 
         return "ListProjects";
     }

@@ -13,4 +13,11 @@ public class ProjectFacade extends AbstractFacade<Project> {
         super(Project.class);
     }
 
+//    @Override
+//    public Project find(Long primaryKey) {
+//        Project p = super.find(primaryKey);
+//        p.getIssues();
+//        return p;
+//    }
+
 }
