@@ -30,6 +30,7 @@ public class ProjectManagerController extends AbstractUserDataController {
     @RequestMapping(value = "/add-project", method = RequestMethod.GET)
     public String addProjectForm(Map<String, Object> model) {
         fillUserData(model);
+        model.put("project", new Project());
 
         return MappingConstant.ADD_PROJECT.toString();
     }
