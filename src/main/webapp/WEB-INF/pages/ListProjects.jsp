@@ -13,13 +13,13 @@
         <div id="content">
             <div>
                 <div class="page-header">
-                <h2>Lista projektów</h2>
+                <h2>Projekty</h2>
                 </div>
                 <c:if test="${user.admin}">
                     <a href="<c:url value="/add-project" />">Dodaj projekt</a>
                 </c:if>
                 <div>
-                    <h3>Projekty</h3>
+                    <h3>Lista projektów</h3>
                     <table class="table table-hover">
                         <thead>
                         <tr>

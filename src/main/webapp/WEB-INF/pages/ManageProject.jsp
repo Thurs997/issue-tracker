@@ -13,9 +13,12 @@
  <div class="page-header">
  <h1>Projekt ${project.name}</h1>
  </div>
+ <c:if test="${user.manager}">
+   <a href="/project/${project.id}/add-issue">Dodaj zagadnienie</a>
+ </c:if>
  <div>
-  <p>Zmień nazwę projektu</p>
-     <form:form action="manage-project" modelAttribute="project" method="post">
+  <p id="infoLabel">Zmień nazwę projektu</p>
+     <form:form action="/manage-project" modelAttribute="project" method="post">
         <form:hidden path="id" />
          <form:input id="nameEntry" class="form-control" path="name"/>
 
@@ -24,6 +27,7 @@
          </div>
 
      </form:form>
+
  </div>
 </body>
 </html>
