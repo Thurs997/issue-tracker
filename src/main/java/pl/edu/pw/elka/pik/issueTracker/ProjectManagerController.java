@@ -40,7 +40,7 @@ public class ProjectManagerController {
     @RequestMapping(value = "/add-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project) {
         projectFacade.create(project);
-        return "redirect:list-projects";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/change-user", method = RequestMethod.POST)
