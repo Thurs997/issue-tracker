@@ -19,15 +19,6 @@ public class IssueManagerControler extends AbstractUserDataController {
     @Autowired
     private ProjectFacade projectFacade;
 
-    @RequestMapping(value="/list-issues", method= RequestMethod.GET)
-    public String listIssues(Map<String, Object> model) {
-        List<Issue> issues = issueFacade.findAll();
-        fillUserData(model);
-        model.put("issues", issues);
-
-        return MappingConstant.LIST_ISSUES.toString();
-    }
-
     @RequestMapping(value = "/project/{projectId}/add-issue", method = RequestMethod.GET)
     public String addIssueForm(@PathVariable Long projectId, Map<String, Object> model) {
         fillUserData(model);
