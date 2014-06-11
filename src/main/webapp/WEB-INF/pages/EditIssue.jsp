@@ -13,8 +13,8 @@
                 Informacja, że takie issue nie istnieje. Agnieszka doklej coś ładnego ;)
             </c:when>
             <c:otherwise>
-                <form:form action="/edit-issue" method="post" modelAttribute="issue">
-                    <form:hidden path="id" /><form:hidden path="project.id" /><form:hidden path="project.name" />
+                <form:form action="/project/${projectId}/edit-issue" method="post" modelAttribute="issue">
+                    <form:hidden path="id" /><form:hidden path="status" /><form:hidden path="created" /><form:hidden path="completed" />
                     Nazwa: <form:input path="name" /><br />
                     Typ: <form:select path="type"><form:options items="${issueTypes}" itemLabel="name" /></form:select><br />
                     Priorytet: <form:input path="priority" /><br />

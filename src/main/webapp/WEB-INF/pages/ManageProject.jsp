@@ -1,4 +1,3 @@
-<%@ page import="java.io.*,java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -15,7 +14,7 @@
  </div>
  <div>
   <p>Zmień nazwę projektu</p>
-     <form:form action="manage-project" modelAttribute="project" method="post">
+     <form:form action="/manage-project" modelAttribute="project" method="post">
         <form:hidden path="id" />
          <form:input id="nameEntry" class="form-control" path="name"/>
 

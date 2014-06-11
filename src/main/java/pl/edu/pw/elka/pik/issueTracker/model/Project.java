@@ -1,6 +1,5 @@
 package pl.edu.pw.elka.pik.issueTracker.model;
 
-import org.hibernate.FetchMode;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -8,8 +7,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -23,16 +21,16 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Project implements Serializable {
     private Long id;
     private String name;
-    private List<Issue> issues;
+    private Set<Issue> issues = new LinkedHashSet<Issue>();
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade({CascadeType.ALL})
     @JoinColumn(name="PROJECT_ID")
-    public List<Issue> getIssues() {
+    public Set<Issue> getIssues() {
         return issues;
     }
 
-    public void setIssues(List<Issue> issues) {
+    public void setIssues(Set<Issue> issues) {
         this.issues = issues;
     }
 

@@ -2,6 +2,9 @@ package pl.edu.pw.elka.pik.issueTracker.model;
 
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
+
 /**
  * Created by lucas on 27.04.14.
  */
@@ -12,11 +15,12 @@ public class ProjectFacade extends AbstractFacade<Project> {
         super(Project.class);
     }
 
-//    @Override
-//    public Project find(Long primaryKey) {
-//        Project p = super.find(primaryKey);
-//        p.getIssues();
-//        return p;
-//    }
-
+    public boolean projectExists(String name){
+        CriteriaBuilder builder = super.entityManager.getCriteriaBuilder();
+        CriteriaQuery<Project> criteria = builder.createQuery(Project.class);
+        Root<Project> c = criteria.from(Project.class);
+        TypedQuery<Project> query = super.entityManager.createQuery(
+                criteria.select(c).where(builder.equal(c.get("name"), name)));
+        return query.getResultList().size() > 0;
+    }
 }

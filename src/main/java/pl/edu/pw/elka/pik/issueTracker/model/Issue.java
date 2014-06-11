@@ -2,12 +2,12 @@ package pl.edu.pw.elka.pik.issueTracker.model;
 
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -29,7 +29,7 @@ public class Issue {
     private Integer priority = 0;
     private String assignee;
     private String description;
-    private List<Comment> comments;
+    private Set<Comment> comments = new LinkedHashSet<Comment>();
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -38,7 +38,7 @@ public class Issue {
         return id;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @Cascade({CascadeType.MERGE, CascadeType.SAVE_UPDATE})
     @JoinColumn(name = "PROJECT_ID")
     public Project getProject() {
@@ -62,11 +62,13 @@ public class Issue {
         return type;
     }
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @Column(name = "CREATED", nullable = false)
     public Date getCreated() {
         return created;
     }
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @Column(name = "COMPLETED", nullable = true)
     public Date getCompleted() {
         return completed;
@@ -87,10 +89,10 @@ public class Issue {
         return description;
     }
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     @Cascade({CascadeType.ALL})
     @JoinColumn(name="ISSUE_ID")
-    public List<Comment> getComments() {
+    public Set<Comment> getComments() {
         return comments;
     }
 
@@ -134,7 +136,7 @@ public class Issue {
         this.description = description;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 

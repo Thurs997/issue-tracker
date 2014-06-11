@@ -42,6 +42,7 @@ public class Comment {
     public String getContent() {
         return content;
     }
+
     @ManyToOne
     @Cascade({CascadeType.MERGE, CascadeType.SAVE_UPDATE})
     @JoinColumn(name = "ISSUE_ID")

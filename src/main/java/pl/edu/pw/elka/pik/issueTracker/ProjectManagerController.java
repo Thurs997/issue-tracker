@@ -1,10 +1,10 @@
 package pl.edu.pw.elka.pik.issueTracker;
 
-import com.sun.xml.internal.ws.wsdl.parser.MemberSubmissionAddressingWSDLParserExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.pw.elka.pik.issueTracker.model.*;
+import pl.edu.pw.elka.pik.issueTracker.model.Project;
+import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
 
 import java.util.List;
 import java.util.Map;
@@ -39,6 +39,17 @@ public class ProjectManagerController extends AbstractUserDataController {
     public String addProject(@ModelAttribute("project") Project project) {
         projectFacade.create(project);
         return MappingConstant.REDIRECT_ROOT.toString();
+    }
+
+    @RequestMapping(value = "/project-exists/{projectName}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public String projectExists(@PathVariable String projectName){
+        Boolean exists;
+        if(projectName.length() > 2)
+            exists = projectFacade.projectExists(projectName);
+        else
+            exists = Boolean.TRUE;
+        return "{\"exists\":"+ exists.toString() + "}";
     }
 
 }
