@@ -1,11 +1,12 @@
 package pl.edu.pw.elka.pik.issueTracker.model;
 
-import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
-@Service
+@Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class User implements Serializable {
     private Type user;

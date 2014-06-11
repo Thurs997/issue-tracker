@@ -3,7 +3,7 @@ package pl.edu.pw.elka.pik.issueTracker;
 /**
  * Created by lucas on 27.04.14.
  */
-import org.hibernate.criterion.Order;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
