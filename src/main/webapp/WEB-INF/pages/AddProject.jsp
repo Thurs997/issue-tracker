@@ -6,21 +6,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Projects</title>
+        <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" />
     </head>
     <body>
         <%@include file="TopBar.jsp"%>
         <div id="content">
-            <h1>Dodaj projekt</h1>
+            <div class="page-header">
+              <h1>Dodaj projekt</h1>
+            </div>
             <form:form action="add-project" modelAttribute="project" method="post">
 
-                <div>
-                    <form:label path="name">Nazwa:</form:label>
-                    <form:input path="name"/>
-                </div>
+                <p>Wprowadź nazwę projektu</p>
+                <form:input id="nameEntry" class="form-control" placeholder="Nazwa projektu" path="name"/>
 
                 <div>
-                    <input type="submit" value="Dodaj projekt"/>
+                    <input id="addButton" type="submit" class="btn btn-default btn-lg" value="Dodaj projekt"/>
                 </div>
 
             </form:form>
