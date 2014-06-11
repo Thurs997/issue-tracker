@@ -1,7 +1,6 @@
 package pl.edu.pw.elka.pik.issueTracker.model;
 
 import org.springframework.stereotype.Repository;
-import pl.edu.pw.elka.pik.issueTracker.AbstractFacade;
 
 /**
  * Created by lucas on 27.04.14.

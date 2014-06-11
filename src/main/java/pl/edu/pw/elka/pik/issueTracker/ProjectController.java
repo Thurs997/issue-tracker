@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.edu.pw.elka.pik.issueTracker.model.Project;
-import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
-import pl.edu.pw.elka.pik.issueTracker.model.User;
+import pl.edu.pw.elka.pik.issueTracker.model.*;
 
 import java.util.Map;
 
@@ -29,7 +27,7 @@ public class ProjectController extends AbstractUserDataController {
     }
     @RequestMapping(value = "/manage-project",  method = RequestMethod.GET)
     public String manageProject (@RequestParam long projectId, Map<String, Object> model) {
-        if(user.getUser() == User.Type.USER) {
+        if(!user.isManager()) {
             return "Unauthorized";
         }
         Project project = projectFacade.find(projectId);

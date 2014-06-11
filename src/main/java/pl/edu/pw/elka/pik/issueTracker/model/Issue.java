@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import java.util.Date;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -27,6 +28,7 @@ public class Issue {
     private Date completed;
     private Integer priority = 0;
     private String assignee;
+    private List<Comment> comments;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -42,7 +44,7 @@ public class Issue {
         return project;
     }
 
-    @Column(name = "NAME", unique = true, nullable = false, length = 40)
+    @Column(name = "NAME", unique = false, nullable = false, length = 40)
     public String getName() {
         return name;
     }
@@ -71,6 +73,13 @@ public class Issue {
     @Column(name = "ASSIGNEE", nullable = true, length = 40)
     public String getAssignee() {
         return assignee;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @Cascade({CascadeType.ALL})
+    @JoinColumn(name="ISSUE_ID")
+    public List<Comment> getComments() {
+        return comments;
     }
 
     public void setId(Long id) {
@@ -103,6 +112,10 @@ public class Issue {
 
     public void setAssignee(String assignee) {
         this.assignee = assignee;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public enum Type {

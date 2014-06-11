@@ -1,4 +1,4 @@
-package pl.edu.pw.elka.pik.issueTracker;
+package pl.edu.pw.elka.pik.issueTracker.model;
 
 /**
  * Created by lucas on 27.04.14.
@@ -16,7 +16,7 @@ import java.util.List;
 public abstract class AbstractFacade<T> {
 
     @PersistenceContext(unitName = "issue-tracker")
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     private Class<T> entityClass;
 
