@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by lucas on 27.04.14.
  */
 @Controller
-public class ProjectManagerController {
+public class ProjectManagerController extends AbstractUserDataController {
 
     @Autowired
     private ProjectFacade projectFacade;
@@ -22,9 +22,7 @@ public class ProjectManagerController {
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String listProjects(Map<String, Object> model) {
         List<Project> projects = projectFacade.findAll();
-
-        model.put("user", user);
-        model.put("availableUsers", User.Type.values());
+        fillUserData(model);
         model.put("projects", projects);
 
         return "ListProjects";
@@ -32,10 +30,8 @@ public class ProjectManagerController {
 
     @RequestMapping(value = "/add-project", method = RequestMethod.GET)
     public String addProjectForm(Map<String, Object> model) {
-
+        fillUserData(model);
         model.put("user", user);
-        model.put("project", new Project());
-        model.put("availableUsers", User.Type.values());
 
         return "AddProject";
     }

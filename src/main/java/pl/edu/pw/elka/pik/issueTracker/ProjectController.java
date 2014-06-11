@@ -16,19 +16,15 @@ import java.util.Map;
  * Created by lucas on 11.06.14.
  */
 @Controller
-public class ProjectController {
+public class ProjectController extends AbstractUserDataController {
     @Autowired
     private ProjectFacade projectFacade;
-
-    @Autowired
-    private User user;
 
     @RequestMapping(value = "/show-project",  method = RequestMethod.GET)
     public String showProject(@RequestParam long projectId, Map<String, Object> model) {
         Project project = projectFacade.find(projectId);
+        fillUserData(model);
         model.put("project", project);
-        model.put("user", user);
-        model.put("availableUsers", User.Type.values());
         return "ShowProject";
     }
     @RequestMapping(value = "/manage-project",  method = RequestMethod.GET)
@@ -37,9 +33,8 @@ public class ProjectController {
             return "Unauthorized";
         }
         Project project = projectFacade.find(projectId);
+        fillUserData(model);
         model.put("project", project);
-        model.put("user", user);
-        model.put("availableUsers", User.Type.values());
         return "ManageProject";
 
     }

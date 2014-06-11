@@ -27,9 +27,9 @@
                         <tbody>
                         <c:choose>
                             <c:when test="${not empty projects}">
-                                <c:forEach var="project" items="${projects}">
+                                <c:forEach var="project" items="${projects}" varStatus="status">
                                     <tr>
-                                        <td><c:out value="${project.id}"/></td>
+                                        <td><c:out value="${status.count}"/></td>
                                         <td><c:out value="${project.name}"/></td>
                                         <td><a href="/show-project?projectId=${project.id}">Zawartość</a></td>
                                         <c:if test="${user.manager}">
