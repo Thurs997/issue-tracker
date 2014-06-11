@@ -1,5 +1,6 @@
 package pl.edu.pw.elka.pik.issueTracker;
 
+import com.sun.xml.internal.ws.wsdl.parser.MemberSubmissionAddressingWSDLParserExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,20 +24,20 @@ public class ProjectManagerController extends AbstractUserDataController {
         fillUserData(model);
         model.put("projects", projects);
 
-        return "ListProjects";
+        return MappingConstant.LIST_PROJECTS.toString();
     }
 
     @RequestMapping(value = "/add-project", method = RequestMethod.GET)
     public String addProjectForm(Map<String, Object> model) {
         fillUserData(model);
 
-        return "AddProject";
+        return MappingConstant.ADD_PROJECT.toString();
     }
 
     @RequestMapping(value = "/add-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project) {
         projectFacade.create(project);
-        return "redirect:/";
+        return MappingConstant.REDIRECT_ROOT.toString();
     }
 
 }

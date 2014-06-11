@@ -30,7 +30,7 @@ public class IssueManagerControler extends AbstractUserDataController {
         fillUserData(model);
         model.put("issues", issues);
 
-        return "ListIssues";
+        return MappingConstant.LIST_ISSUES.toString();
     }
 
     @RequestMapping(value = "/add-issue", method = RequestMethod.GET)
@@ -38,12 +38,12 @@ public class IssueManagerControler extends AbstractUserDataController {
         fillUserData(model);
         List<Project> projects = projectFacade.findAll();
         model.put("projects", projects);
-        return "AddIssue";
+        return MappingConstant.EDIT_ISSUE.toString();
     }
 
     @RequestMapping(value = "/add-issue", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("issue") Issue issue) {
         issueFacade.create(issue);
-        return "redirect:/";
+        return MappingConstant.REDIRECT_LIST_ISSUES.toString();
     }
 }

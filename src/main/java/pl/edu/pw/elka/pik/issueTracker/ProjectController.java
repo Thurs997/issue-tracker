@@ -23,17 +23,17 @@ public class ProjectController extends AbstractUserDataController {
         Project project = projectFacade.find(projectId);
         fillUserData(model);
         model.put("project", project);
-        return "ShowProject";
+        return MappingConstant.SHOW_PROJECT.toString();
     }
     @RequestMapping(value = "/manage-project",  method = RequestMethod.GET)
     public String manageProject (@RequestParam long projectId, Map<String, Object> model) {
         if(!user.isManager()) {
-            return "Unauthorized";
+            return MappingConstant.UNAUTHORIZED.toString();
         }
         Project project = projectFacade.find(projectId);
         fillUserData(model);
         model.put("project", project);
-        return "ManageProject";
+        return MappingConstant.MANAGE_PROJECT.toString();
 
     }
 }

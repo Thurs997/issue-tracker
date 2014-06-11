@@ -24,7 +24,7 @@ public class IssueController extends AbstractUserDataController {
         Issue issue = issueFacade.find(issueId);
         model.put("issue", issue);
         fillUserData(model);
-        return "ShowIssue";
+        return MappingConstant.SHOW_ISSUE.toString();
     }
 
     @RequestMapping(value = "/edit-issue", method = RequestMethod.GET)
@@ -35,6 +35,6 @@ public class IssueController extends AbstractUserDataController {
         Issue issue = issueFacade.find(issueId);
         model.put("issue", issue);
         fillUserData(model);
-        return "EditIssue";
+        return MappingConstant.EDIT_ISSUE.toString();
     }
 }
