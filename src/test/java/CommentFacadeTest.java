@@ -5,14 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.edu.pw.elka.pik.issueTracker.model.Comment;
-import pl.edu.pw.elka.pik.issueTracker.model.CommentFacade;
-import pl.edu.pw.elka.pik.issueTracker.model.Issue;
-import pl.edu.pw.elka.pik.issueTracker.model.IssueFacade;
+import pl.edu.pw.elka.pik.issueTracker.model.*;
 
 import java.util.*;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**

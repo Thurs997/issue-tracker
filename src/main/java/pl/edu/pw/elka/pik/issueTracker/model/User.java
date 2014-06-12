@@ -27,9 +27,8 @@ public class User implements Serializable {
         return user.equals(Type.ADMIN);
     }
 
-
     public enum Type{
-        USER("Użytkownik"), AUTHOR("Autor"), ADMIN("Administrator");
+        USER("Uzytkownik"), AUTHOR("Autor"), ADMIN("Administrator");
 
         private String label;
 

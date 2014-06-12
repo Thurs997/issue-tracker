@@ -24,8 +24,7 @@ public class Project implements Serializable {
     private Set<Issue> issues = new LinkedHashSet<Issue>();
 
     @OneToMany(fetch = FetchType.EAGER)
-    @OrderBy("lastModified DESC")
-    @Cascade({CascadeType.ALL})
+    @OrderBy("lastModified DESC") @Cascade({CascadeType.ALL})
     @JoinColumn(name="PROJECT_ID")
     public Set<Issue> getIssues() {
         return issues;
