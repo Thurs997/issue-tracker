@@ -29,7 +29,7 @@
                 change: sliderChange
             });
             sliderChange(null, {value: <c:out value="${issue.priority}" />});
-        })
+        });
     </script>
 </head>
 <body>
@@ -53,7 +53,7 @@
                         <form:select class="form-control" path="type"><form:options items="${issueTypes}" itemLabel="name" /></form:select>
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon">Priorytet</span>
+                        <span class="input-group-addon" style="border-right: 1px solid #ccc; ">Priorytet</span>
                         <form:hidden path="priority" id="priorityValue" />
                         <div id="prioritySlider" style="margin: 10px 10px -8px 10px;"></div><br />
                     </div>

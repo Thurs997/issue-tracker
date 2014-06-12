@@ -7,8 +7,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 /**
@@ -54,4 +53,36 @@ public class Project implements Serializable {
         this.name = name;
     }
 
+    public static List<ProjectStatistics> getStatistics(List<Project> projects) {
+        List<ProjectStatistics> stats = new ArrayList<ProjectStatistics>();
+        for(Project project : projects){
+            stats.add(project.countStatistics());
+        }
+        return stats;
+    }
+
+    private ProjectStatistics countStatistics() {
+        ProjectStatistics stats = new ProjectStatistics();
+        stats.setIssues(issues.size());
+        Date lastCreated = new Date(0);
+        Date lastModified = new Date(0);
+        int openIssues = 0;
+
+        for(Issue issue : issues){
+            if(issue.getStatus().isOpen())
+                openIssues++;
+            if(issue.getCreated().after(lastCreated))
+                lastCreated = issue.getCreated();
+            if(issue.getCreated().after(lastModified))
+                lastModified = issue.getCreated();
+            else if(issue.getCompleted() != null &&
+                    issue.getCompleted().after(lastModified))
+                lastModified = issue.getCompleted();
+        }
+
+        stats.setOpenIssues(openIssues);
+        stats.setLastIssue(lastCreated);
+        stats.setLastChange(lastModified);
+        return stats;
+    }
 }

@@ -22,6 +22,7 @@ public class ProjectManagerController extends AbstractUserDataController {
     public String listProjects(Map<String, Object> model) {
         List<Project> projects = projectFacade.findAll();
         fillUserData(model);
+        model.put("stats", Project.getStatistics(projects));
         model.put("projects", projects);
 
         return MappingConstant.LIST_PROJECTS.toString();

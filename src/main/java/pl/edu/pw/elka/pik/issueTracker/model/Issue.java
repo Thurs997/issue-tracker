@@ -169,6 +169,10 @@ public class Issue {
             return name;
         }
 
+        public boolean isOpen(){
+            return equals(OPEN) || equals(ON_HOLD) || equals(IN_PROGRESS);
+        }
+
         Status(String name){
             this.name = name;
         }

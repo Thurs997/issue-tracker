@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +27,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Nazwa</th>
+                            <th>Ilość zagadnień</th>
+                            <th>Ilość otwartych zagadnień</th>
+                            <th>Ostatnie nowe zagadnienie</th>
+                            <th>Ostatnia modyfikacja</th>
                             <th></th>
                             <c:if test="${user.manager}">
                               <th></th>
@@ -38,6 +44,10 @@
                                     <tr>
                                         <td class="col-md-1"><c:out value="${status.count}"/></td>
                                         <td class="col-md-5"><c:out value="${project.name}"/></td>
+                                        <td class="col-md-2"><c:out value="${stats[status.index].issues}"/></td>
+                                        <td class="col-md-2"><c:out value="${stats[status.index].openIssues}"/></td>
+                                        <td class="col-md-2"><fmt:formatDate type="both" value="${stats[status.index].lastIssue}" /></td>
+                                        <td class="col-md-2"><fmt:formatDate type="both" value="${stats[status.index].lastChange}" /></td>
                                         <td class="col-md-1"><a href="/show-project/${project.id}">Zawartość</a></td>
                                         <c:if test="${user.manager}">
                                             <td class="col-md-1"><a href="/manage-project/${project.id}">Zarządzaj</a></td>
