@@ -45,7 +45,7 @@ public class ProjectManagerController extends AbstractUserDataController {
     @ResponseBody
     public String projectExists(@PathVariable String projectName){
         Boolean exists;
-        if(projectName.length() > 2)
+        if(projectName.length() >= 2 && projectName.length() <= 40)
             exists = projectFacade.projectExists(projectName);
         else
             exists = Boolean.TRUE;
