@@ -17,6 +17,7 @@
     <c:otherwise>
         <div class="page-header">
             <h1>Zagadnienie</h1>
+            <a href="<c:url value="/show-project/${issue.project.id}" />">W górę</a>
         </div>
         <c:if test="${user.author}">
             <a href="/edit-issue/${issue.id}">Modyfikuj</a>

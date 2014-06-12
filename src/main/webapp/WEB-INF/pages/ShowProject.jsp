@@ -21,12 +21,16 @@
 </head>
 <body>
     <%@ include file="TopBar.jsp" %>
-    <div class="page-header"><h1>Projekt ${project.name} </h1></div>
+    <div class="page-header">
+        <h1>Projekt ${project.name} </h1>
+        <a href="<c:url value="/" />">W górę</a>
+    </div>
+
     <a href="<c:url value="/project/${project.id}/add-issue" />">Dodaj zagadnienie</a>
     <c:choose>
         <c:when test="${not empty project}">
             <div>
-                <h3>Lista projektów</h3>
+                <h3>Lista zagadnień</h3>
                 <table class="table">
                     <thead>
                     <tr>
