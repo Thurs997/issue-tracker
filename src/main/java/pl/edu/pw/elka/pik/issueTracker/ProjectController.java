@@ -25,7 +25,7 @@ public class ProjectController extends AbstractUserDataController {
     }
     @RequestMapping(value = "/manage-project/{projectId}",  method = RequestMethod.GET)
     public String manageProject (@PathVariable long projectId, Map<String, Object> model) {
-        if(!user.isManager()) {
+        if(!user.isAuthor()) {
             return MappingConstant.UNAUTHORIZED.toString();
         }
         Project project = projectFacade.find(projectId);
@@ -37,7 +37,9 @@ public class ProjectController extends AbstractUserDataController {
 
     @RequestMapping(value = "/manage-project", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project) {
-        projectFacade.edit(project);
+        Project dbProject = projectFacade.find(project.getId());
+        dbProject.setName(project.getName());
+        projectFacade.edit(dbProject);
         return MappingConstant.REDIRECT_ROOT.toString();
     }
 }

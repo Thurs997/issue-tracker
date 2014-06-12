@@ -1,5 +1,5 @@
-<%@ page import="java.io.*,java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,7 +18,7 @@
         <div class="page-header">
             <h1>Zagadnienie</h1>
         </div>
-        <c:if test="${user.manager}">
+        <c:if test="${user.author}">
             <a href="/edit-issue/${issue.id}">Modyfikuj</a>
         </c:if>
             <table id="issueInfo" class="table table-bordered">
@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-1">Priorytet</td>
-                    <td class="col-md-5">${issue.priority}</td>
+                    <td class="col-md-5">${issue.priority}/100</td>
                 </tr>
                 <tr>
                     <td class="col-md-1">Osoba przypisana</td>
@@ -41,11 +41,11 @@
                 </tr>
                 <tr>
                     <td class="col-md-1">Zgłoszono</td>
-                    <td class="col-md-5">${issue.created}</td>
+                    <td class="col-md-5"><fmt:formatDate type="both" value="${issue.created}" /></td>
                 </tr>
                 <tr>
                     <td class="col-md-1">Zamknięto</td>
-                    <td class="col-md-5">${issue.completed}</td>
+                    <td class="col-md-5"><fmt:formatDate type="both" value="${issue.completed}" /></td>
                 </tr>
                 <tr>
                     <td class="col-md-1">Status</td>

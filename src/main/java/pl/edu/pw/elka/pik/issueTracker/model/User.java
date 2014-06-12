@@ -19,8 +19,8 @@ public class User implements Serializable {
         this.user = user;
     }
 
-    public boolean isManager(){
-        return user.equals(Type.MANAGER) || user.equals(Type.ADMIN);
+    public boolean isAuthor(){
+        return user.equals(Type.AUTHOR) || user.equals(Type.ADMIN);
     }
 
     public boolean isAdmin(){
@@ -29,7 +29,7 @@ public class User implements Serializable {
 
 
     public enum Type{
-        USER("Użytkownik"), MANAGER("Kierownik"), ADMIN("Administrator");
+        USER("Użytkownik"), AUTHOR("Autor"), ADMIN("Administrator");
 
         private String label;
 

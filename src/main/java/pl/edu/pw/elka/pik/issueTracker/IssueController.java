@@ -33,7 +33,7 @@ public class IssueController extends AbstractUserDataController {
 
     @RequestMapping(value = "/edit-issue/{issueId}", method = RequestMethod.GET)
     public String editIssue(@PathVariable long issueId, Map<String, Object> model) {
-        if(!userIsManager()) {
+        if(!userIsAuthor()) {
             return "Unauthorized";
         }
         Issue issue = issueFacade.find(issueId);

@@ -1,7 +1,4 @@
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.edu.pw.elka.pik.issueTracker.model.User;
 
 import static org.junit.Assert.assertFalse;
@@ -18,9 +15,9 @@ public class UserTest {
         User user = new User();
         user.setUser(User.Type.USER);
         assertFalse(user.isAdmin());
-        assertFalse(user.isManager());
+        assertFalse(user.isAuthor());
         user.setUser(User.Type.ADMIN);
-        assertTrue(user.isManager());
+        assertTrue(user.isAuthor());
     }
 
     @Test

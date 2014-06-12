@@ -1,5 +1,3 @@
-import org.hibernate.internal.SessionImpl;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,17 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.edu.pw.elka.pik.issueTracker.model.CommentFacade;
-import pl.edu.pw.elka.pik.issueTracker.model.IssueFacade;
-import pl.edu.pw.elka.pik.issueTracker.model.Project;
-import pl.edu.pw.elka.pik.issueTracker.model.ProjectFacade;
+import pl.edu.pw.elka.pik.issueTracker.model.*;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static junit.framework.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;

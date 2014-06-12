@@ -21,8 +21,8 @@ public abstract class AbstractUserDataController {
         return user.isAdmin();
     }
 
-    protected boolean userIsManager() {
-        return user.isManager();
+    protected boolean userIsAuthor() {
+        return user.isAuthor();
     }
 
 

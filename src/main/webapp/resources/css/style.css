@@ -34,6 +34,8 @@
 
 #userChange select{
     margin-top: 15px;
+    width: 50%;
+    margin-left: 50%;
 }
 
 #nameEntry{

@@ -81,7 +81,9 @@ public class Project implements Serializable {
         }
 
         stats.setOpenIssues(openIssues);
-        stats.setLastIssue(lastCreated);
+        if(lastCreated.getTime() != 0)
+            stats.setLastIssue(lastCreated);
+        if(lastModified.getTime() != 0)
         stats.setLastChange(lastModified);
         return stats;
     }

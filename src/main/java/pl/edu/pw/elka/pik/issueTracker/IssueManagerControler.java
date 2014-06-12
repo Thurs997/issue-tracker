@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pw.elka.pik.issueTracker.model.*;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,7 +21,6 @@ public class IssueManagerControler extends AbstractUserDataController {
     @RequestMapping(value = "/project/{projectId}/add-issue", method = RequestMethod.GET)
     public String addIssueForm(@PathVariable Long projectId, Map<String, Object> model) {
         fillUserData(model);
-
         model.put("issue", new Issue());
         model.put("projectId", projectId);
         model.put("issueTypes", Issue.Type.values());

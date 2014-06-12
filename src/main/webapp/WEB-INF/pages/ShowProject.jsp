@@ -1,4 +1,3 @@
-<%@ page import="java.io.*,java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -13,7 +12,8 @@
 <c:choose>
     <c:when test="${not empty project}">
         <div>
-            <div class="page-header"><h1>Projekt ${project.name} </h1></div>
+            <div class="page-header"><h1>Projekt ${project.name} </h1></div>=
+            <a href="/project/${project.id}/add-issue">Dodaj zagadnienie</a>
             <c:choose>
                 <c:when test="${not empty project.issues}">
                     <h3>Zagadnienia</h3>
