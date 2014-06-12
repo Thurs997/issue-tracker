@@ -27,8 +27,8 @@
                             <tr>
                                 <th>lp.</th>
                                 <th>Nazwa</th>
-                                <th>Ilość zagadnień</th>
-                                <th>Ilość otwartych zagadnień</th>
+                                <th>Liczba zagadnień</th>
+                                <th>Liczba otwartych zagadnień</th>
                                 <th>Ostatnie nowe zagadnienie</th>
                                 <th>Ostatnia modyfikacja</th>
                                 <c:if test="${user.admin}">
