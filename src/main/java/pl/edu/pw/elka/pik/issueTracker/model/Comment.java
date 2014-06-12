@@ -69,4 +69,9 @@ public class Comment {
     public void setIssue(Issue issue) {
         this.issue = issue;
     }
+    @PrePersist
+    protected void onCreate() {
+        time = new Date();
+    }
+
 }

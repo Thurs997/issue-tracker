@@ -40,6 +40,7 @@ public class IssueController extends AbstractUserDataController {
         model.put("issue", issue);
         model.put("projectId", issue.getProject().getId());
         model.put("issueTypes", Issue.Type.values());
+        model.put("issueStatuses", Issue.Status.values());
         fillUserData(model);
         return MappingConstant.EDIT_ISSUE.toString();
     }
@@ -57,6 +58,7 @@ public class IssueController extends AbstractUserDataController {
             dbIssue.setName(issue.getName());
             dbIssue.setAssignee(issue.getAssignee());
             dbIssue.setDescription(issue.getDescription());
+            dbIssue.setStatus(issue.getStatus());
             dbIssue.setType(issue.getType());
             dbIssue.setPriority(issue.getPriority());
             issueFacade.edit(dbIssue);

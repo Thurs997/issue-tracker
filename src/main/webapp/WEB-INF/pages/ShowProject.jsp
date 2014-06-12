@@ -19,7 +19,7 @@
                     <h3>Zagadnienia</h3>
                     <ul>
                         <c:forEach items="${project.issues}" var="issue">
-                            <li><a href${issue.name}</li>
+                            <li><a href="/show-issue/${issue.id}">${issue.name}</a></li>
                         </c:forEach>
                     </ul>
                 </c:when>

@@ -1,4 +1,3 @@
-<%@ page import="java.io.*,java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -19,7 +18,7 @@
                     <h1>Zagadnienie</h1>
                 </div>
                 <form:form action="/project/${projectId}/edit-issue" method="post" modelAttribute="issue">
-                    <form:hidden path="id" /><form:hidden path="status" /><form:hidden path="created" /><form:hidden path="completed" />
+                    <form:hidden path="id" /><form:hidden path="created" /><form:hidden path="completed" />
                     <div class="input-group">
                         <span class="input-group-addon">Nazwa</span>
                         <form:input class="form-control" path="name"/>
@@ -28,6 +27,7 @@
                         <span class="input-group-addon">Typ</span>
                         <form:select class="form-control" path="type"><form:options items="${issueTypes}" itemLabel="name" /></form:select>
                     </div>
+
                     <div class="input-group">
                         <span class="input-group-addon">Priorytet</span>
                         <form:input class="form-control" path="priority" /><br />
@@ -37,12 +37,18 @@
                         <span class="input-group-addon">Osoba odpowiedzialna</span>
                         <form:input class="form-control" path="assignee" /><br />
                     </div>
+                    <c:if test="${issue.id != null}">
+                        <div class="input-group">
+                            <span class="input-group-addon">Status</span>
+                            <form:select class="form-control" path="status"><form:options items="${issueStatuses}" itemLabel="name" /></form:select>
+                        </div>
+                    </c:if>
                     <div class="input-group">
                         <span class="input-group-addon">Opis</span>
                         <form:textarea class="form-control" path="description" /><br />
                     </div>
                     <div>
-                        <input id="addButton" type="submit" class="btn btn-default btn-lg" value="Dodaj"/>
+                        <input id="addButton" type="submit" class="btn btn-default btn-lg" value="${issue.id == null ? "Dodaj" : "Modyfiku"}"/>
                     </div>
                 </form:form>
             </c:otherwise>

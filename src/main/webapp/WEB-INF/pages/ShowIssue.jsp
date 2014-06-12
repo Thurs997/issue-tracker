@@ -18,9 +18,9 @@
         <div class="page-header">
             <h1>Zagadnienie</h1>
         </div>
-        <form:form action="/edit-issue" method="post" modelAttribute="issue">
-            <form:hidden path="id" /><form:hidden path="project.id" /><form:hidden path="project.name" />
-
+        <c:if test="${user.manager}">
+            <a href="/edit-issue/${issue.id}">Modyfikuj</a>
+        </c:if>
             <table id="issueInfo" class="table table-bordered">
               <tbody>
                 <tr>
@@ -29,18 +29,56 @@
                 </tr>
                 <tr>
                     <td class="col-md-1">Typ</td>
-                    <td class="col-md-5">${issue.type}</td>
+                    <td class="col-md-5">${issue.type.name}</td>
                 </tr>
                 <tr>
                     <td class="col-md-1">Priorytet</td>
                     <td class="col-md-5">${issue.priority}</td>
                 </tr>
+                <tr>
+                    <td class="col-md-1">Osoba przypisana</td>
+                    <td class="col-md-5">${issue.assignee}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-1">Zgłoszono</td>
+                    <td class="col-md-5">${issue.created}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-1">Zamknięto</td>
+                    <td class="col-md-5">${issue.completed}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-1">Status</td>
+                    <td class="col-md-5">${issue.status.name}</td>
+                </tr>
               </tbody>
             </table>
             <h3>Opis</h3>
             <p>${issue.description}</p>
-            </tr>
-        </form:form>
+            <form:form action="/issue/${issue.id}/add-comment" method="post" modelAttribute="comment">
+                <div class="input-group">
+                    <span class="input-group-addon">Autor</span>
+                    <form:input class="form-control" path="author" /><br />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Komentarz</span>
+                    <form:textarea class="form-control" path="content" /><br />
+                </div>
+                <div>
+                    <input id="addButton" type="submit" class="btn btn-default btn-lg" value="Dodaj"/>
+                </div>
+            </form:form>
+        <c:if test="${not empty issue.comments}">
+            <table>
+                <c:forEach items="${issue.comments}" var="oldComment">
+                    <tr>
+                        <td>${oldComment.author}</td>
+                        <td>${oldComment.content}</td>
+                        <td>${oldComment.time}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
     </c:otherwise>
 </c:choose>
 </body>
