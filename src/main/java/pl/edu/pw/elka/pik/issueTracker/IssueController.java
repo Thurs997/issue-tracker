@@ -51,6 +51,7 @@ public class IssueController extends AbstractUserDataController {
             Project project = projectFacade.find(projectId);
             issue.setStatus(Issue.Status.OPEN);
             issue.setCreated(new Date());
+            issue.setLastModified(new Date());
             issue.setProject(project);
             issueFacade.create(issue);
 

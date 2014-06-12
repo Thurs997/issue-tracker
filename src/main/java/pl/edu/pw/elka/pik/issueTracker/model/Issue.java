@@ -97,6 +97,7 @@ public class Issue {
         return comments;
     }
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     public Date getLastModified() {
         return lastModified;
     }

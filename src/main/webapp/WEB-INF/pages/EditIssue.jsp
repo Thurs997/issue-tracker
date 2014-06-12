@@ -54,8 +54,6 @@
                 <form action="/project/${projectId}/edit-issue" method="post" name="issueEdit"
                       novalidate="novalidate" ng-submit="submitForm(issueEdit.$valid)">
                     <input type="hidden" name="id" value="<c:out value="${issue.id}" />" />
-                    <input type="hidden" name="created" value="<c:out value="${issue.created}" />" />
-                    <input type="hidden" name="completed" value="<c:out value="${issue.completed}" />" />
                     <div class="error" ng-show="issueEdit.name.$error.required || issueEdit.name.$error.minlength" class="input-group">
                         Nazwa projektu jest zbyt krótka
                     </div>
