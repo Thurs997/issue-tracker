@@ -63,3 +63,15 @@ body {
 .input-group {
     max-width: 50%;
 }
+
+.form-error{
+    background-color: #ffb1a6;
+    border: 1px solid #af0001;
+}
+
+.error{
+    font-size: 12px;
+    width: 475px;
+    text-align: center;
+    color: #a30000;
+}

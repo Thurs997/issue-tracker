@@ -24,6 +24,7 @@ public class IssueManagerControler extends AbstractUserDataController {
         model.put("issue", new Issue());
         model.put("projectId", projectId);
         model.put("issueTypes", Issue.Type.values());
+        model.put("statusTypes", Issue.Status.values());
         return MappingConstant.EDIT_ISSUE.toString();
     }
 }

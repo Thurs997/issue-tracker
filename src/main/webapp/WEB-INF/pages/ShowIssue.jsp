@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-1">Ostatnia modyfikacja</td>
-                    <td class="col-md-5">${issue.lastModified}</td>
+                    <td class="col-md-5"><fmt:formatDate type="both" value="${issue.lastModified}" /></td>
                 </tr>
                 <tr>
                     <td class="col-md-1">Status</td>
@@ -76,7 +76,7 @@
         <c:if test="${not empty issue.comments}">
              <c:forEach items="${issue.comments}" var="oldComment">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><b>${oldComment.author}</b> ${oldComment.time}</div>
+                        <div class="panel-heading"><b>${oldComment.author}</b> <fmt:formatDate type="both" value="${oldComment.time}" /></div>
                           <div class="panel-body">
                              <p>${oldComment.content}</p>
                           </div>

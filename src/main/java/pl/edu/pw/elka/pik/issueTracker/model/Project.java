@@ -73,11 +73,8 @@ public class Project implements Serializable {
                 openIssues++;
             if(issue.getCreated().after(lastCreated))
                 lastCreated = issue.getCreated();
-            if(issue.getCreated().after(lastModified))
-                lastModified = issue.getCreated();
-            else if(issue.getCompleted() != null &&
-                    issue.getCompleted().after(lastModified))
-                lastModified = issue.getCompleted();
+            if(issue.getLastModified().after(lastModified))
+                lastModified = issue.getLastModified();
         }
 
         stats.setOpenIssues(openIssues);

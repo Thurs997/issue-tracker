@@ -40,7 +40,7 @@ public class IssueController extends AbstractUserDataController {
         model.put("issue", issue);
         model.put("projectId", issue.getProject().getId());
         model.put("issueTypes", Issue.Type.values());
-        model.put("issueStatuses", Issue.Status.values());
+        model.put("statusTypes", Issue.Status.values());
         fillUserData(model);
         return MappingConstant.EDIT_ISSUE.toString();
     }
@@ -60,6 +60,10 @@ public class IssueController extends AbstractUserDataController {
             dbIssue.setAssignee(issue.getAssignee());
             dbIssue.setDescription(issue.getDescription());
             dbIssue.setStatus(issue.getStatus());
+            if(issue.getStatus().isOpen())
+                dbIssue.setCompleted(null);
+            else
+                dbIssue.setCompleted(new Date());
             dbIssue.setType(issue.getType());
             dbIssue.setPriority(issue.getPriority());
             issueFacade.edit(dbIssue);
@@ -72,6 +76,7 @@ public class IssueController extends AbstractUserDataController {
         comment.setTime(new Date());
         Issue issue = issueFacade.find(issueId);
         issue.getComments().add(comment);
+        issue.setLastModified(new Date());
         issueFacade.edit(issue);
         return "redirect:/show-issue/"+issueId;
     }

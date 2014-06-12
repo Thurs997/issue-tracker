@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Project</title>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" />
 </head>
 <body>
@@ -13,13 +13,13 @@
     <c:when test="${not empty project}">
         <div>
             <div class="page-header"><h1>Projekt ${project.name} </h1></div>=
-            <a href="/project/${project.id}/add-issue">Dodaj zagadnienie</a>
+            <a href="<c:url value="/project/${project.id}/add-issue" />">Dodaj zagadnienie</a>
             <c:choose>
                 <c:when test="${not empty project.issues}">
                     <h3>Zagadnienia</h3>
                     <ul>
                         <c:forEach items="${project.issues}" var="issue">
-                            <li><a href="/show-issue/${issue.id}">${issue.name}</a></li>
+                            <li><a href="<c:url value="/show-issue/${issue.id}" />">${issue.name}</a></li>
                         </c:forEach>
                     </ul>
                 </c:when>
