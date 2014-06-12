@@ -30,7 +30,7 @@
      <form:form action="/manage-project" modelAttribute="project" method="post">
         <form:hidden path="id" />
          <div class="input-group">
-           <form:input id="nameEntry" class="form-control" path="name" onkeyup="projectExists(this.value, function(data){ processData(data); })" />
+           <form:input class="form-control" path="name" onkeyup="projectExists(this.value, function(data){ processData(data); })" />
            <div class="input-group-btn">
              <input type="submit" class="btn btn-default" value="Ustaw" onclick="return valid;"/>
            </div>

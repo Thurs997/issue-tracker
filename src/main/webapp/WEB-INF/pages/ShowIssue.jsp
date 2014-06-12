@@ -58,7 +58,8 @@
               </tbody>
             </table>
             <h3>Opis</h3>
-            <p>${issue.description}</p>
+            <p>${issue.description}</p
+            <div class="page-header"> <h3>Komentarze</h3></div>
             <form:form action="/issue/${issue.id}/add-comment" method="post" modelAttribute="comment">
                 <div class="input-group">
                     <span class="input-group-addon">Autor</span>
@@ -69,19 +70,18 @@
                     <form:textarea class="form-control" path="content" /><br />
                 </div>
                 <div>
-                    <input id="addButton" type="submit" class="btn btn-default btn-lg" value="Dodaj"/>
+                    <input id="addButton" type="submit" class="btn btn-default" value="Dodaj"/>
                 </div>
             </form:form>
         <c:if test="${not empty issue.comments}">
-            <table>
-                <c:forEach items="${issue.comments}" var="oldComment">
-                    <tr>
-                        <td>${oldComment.author}</td>
-                        <td>${oldComment.content}</td>
-                        <td>${oldComment.time}</td>
-                    </tr>
+             <c:forEach items="${issue.comments}" var="oldComment">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>${oldComment.author}</b> ${oldComment.time}</div>
+                          <div class="panel-body">
+                             <p>${oldComment.content}</p>
+                          </div>
+                        </div>
                 </c:forEach>
-            </table>
         </c:if>
     </c:otherwise>
 </c:choose>
