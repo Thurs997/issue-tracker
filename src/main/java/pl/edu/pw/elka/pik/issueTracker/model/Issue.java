@@ -98,6 +98,7 @@ public class Issue {
     }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JoinColumn(name="LAST_MODIFIED")
     public Date getLastModified() {
         return lastModified;
     }

@@ -5,6 +5,7 @@ import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.*;
@@ -23,6 +24,7 @@ public class Project implements Serializable {
     private Set<Issue> issues = new LinkedHashSet<Issue>();
 
     @OneToMany(fetch = FetchType.EAGER)
+    @OrderBy("lastModified DESC")
     @Cascade({CascadeType.ALL})
     @JoinColumn(name="PROJECT_ID")
     public Set<Issue> getIssues() {

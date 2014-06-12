@@ -48,28 +48,36 @@ public class IssueController extends AbstractUserDataController {
     @RequestMapping(value = "/project/{projectId}/edit-issue", method = RequestMethod.POST)
     public String saveIssue(@PathVariable Long projectId, @ModelAttribute("issue") Issue issue) {
         if(issue.getId() == null){
-            Project project = projectFacade.find(projectId);
-            issue.setStatus(Issue.Status.OPEN);
-            issue.setCreated(new Date());
-            issue.setLastModified(new Date());
-            issue.setProject(project);
-            issueFacade.create(issue);
+            createNewIssue(projectId, issue);
 
         } else{
-            Issue dbIssue = issueFacade.find(issue.getId());
-            dbIssue.setName(issue.getName());
-            dbIssue.setAssignee(issue.getAssignee());
-            dbIssue.setDescription(issue.getDescription());
-            dbIssue.setStatus(issue.getStatus());
-            if(issue.getStatus().isOpen())
-                dbIssue.setCompleted(null);
-            else
-                dbIssue.setCompleted(new Date());
-            dbIssue.setType(issue.getType());
-            dbIssue.setPriority(issue.getPriority());
-            issueFacade.edit(dbIssue);
+            saveExistingIssue(issue);
         }
         return "redirect:/show-issue/"+issue.getId();
+    }
+
+    private void createNewIssue(Long projectId, Issue issue) {
+        Project project = projectFacade.find(projectId);
+        issue.setStatus(Issue.Status.OPEN);
+        issue.setCreated(new Date());
+        issue.setLastModified(new Date());
+        issue.setProject(project);
+        issueFacade.create(issue);
+    }
+
+    private void saveExistingIssue(Issue issue) {
+        Issue dbIssue = issueFacade.find(issue.getId());
+        dbIssue.setName(issue.getName());
+        dbIssue.setAssignee(issue.getAssignee());
+        dbIssue.setDescription(issue.getDescription());
+        dbIssue.setStatus(issue.getStatus());
+        if(issue.getStatus().isOpen())
+            dbIssue.setCompleted(null);
+        else
+            dbIssue.setCompleted(new Date());
+        dbIssue.setType(issue.getType());
+        dbIssue.setPriority(issue.getPriority());
+        issueFacade.edit(dbIssue);
     }
 
     @RequestMapping(value = "/issue/{issueId}/add-comment", method = RequestMethod.POST)
