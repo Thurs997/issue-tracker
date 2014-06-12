@@ -7,7 +7,7 @@
         <a href="/"><img src="<c:url value="/resources/img/logo.png" />" /></a>
     </div>
     <div id="userChange">
-        <form:form action="change-user" modelAttribute="user" method="post">
+        <form:form action="/change-user" modelAttribute="user" method="post">
             <form:select class="form-control" path="user" onchange="this.form.submit()">
                 <form:options items="${availableUsers}" itemLabel="label" />
             </form:select>

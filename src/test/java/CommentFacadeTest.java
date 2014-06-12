@@ -10,9 +10,7 @@ import pl.edu.pw.elka.pik.issueTracker.model.CommentFacade;
 import pl.edu.pw.elka.pik.issueTracker.model.Issue;
 import pl.edu.pw.elka.pik.issueTracker.model.IssueFacade;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -47,7 +45,7 @@ public class CommentFacadeTest {
         Date creationDate = new Date();
         comment.setTime(creationDate);
         comment.setContent("abc");
-        List<Comment> comments = new ArrayList<Comment>(){};
+        Set<Comment> comments = new LinkedHashSet<Comment>(){};
         comments.add(comment);
 
         issue.setComments(comments);

@@ -10,8 +10,8 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by lucas on 11.06.14.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/testContext.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations={"/testContext.xml"})
 public class UserTest {
     @Test
     public void testUser() {
