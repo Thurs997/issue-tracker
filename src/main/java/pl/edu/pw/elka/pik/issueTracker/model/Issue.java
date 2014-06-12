@@ -98,7 +98,7 @@ public class Issue {
     }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    @JoinColumn(name="LAST_MODIFIED")
+    @Column(name = "LAST_MODIFIED")
     public Date getLastModified() {
         return lastModified;
     }
@@ -156,7 +156,7 @@ public class Issue {
         this.lastModified = lastModified;
     }
     public enum Type {
-        BUG("Błąd"),
+        BUG("Blad"),
         ENHANCEMENT("Usprawnienie");
 
         String name;
@@ -174,9 +174,9 @@ public class Issue {
         OPEN("Otwarte"),
         ON_HOLD("Wstrzymane"),
         IN_PROGRESS("W toku"),
-        RESOLVED("Rozwiązane"),
+        RESOLVED("Rozwiazane"),
         DUPLICATE("Duplikat"),
-        WONT_FIX("Nie błąd");
+        WONT_FIX("Nie blad");
 
         String name;
 
