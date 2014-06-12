@@ -26,6 +26,7 @@ public class Issue {
     private Type type;
     private Date created;
     private Date completed;
+    private Date lastModified;
     private Integer priority = 0;
     private String assignee;
     private String description;
@@ -96,6 +97,15 @@ public class Issue {
         return comments;
     }
 
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        lastModified = new Date();
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -140,6 +150,9 @@ public class Issue {
         this.comments = comments;
     }
 
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
     public enum Type {
         BUG("Błąd"),
         ENHANCEMENT("Usprawnienie");

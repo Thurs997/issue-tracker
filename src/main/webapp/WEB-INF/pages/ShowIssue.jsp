@@ -48,6 +48,10 @@
                     <td class="col-md-5"><fmt:formatDate type="both" value="${issue.completed}" /></td>
                 </tr>
                 <tr>
+                    <td class="col-md-1">Ostatnia modyfikacja</td>
+                    <td class="col-md-5">${issue.lastModified}</td>
+                </tr>
+                <tr>
                     <td class="col-md-1">Status</td>
                     <td class="col-md-5">${issue.status.name}</td>
                 </tr>

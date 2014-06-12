@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1496778172">
+  <component name="DataSourceManagerImpl" format="xml" hash="1513349178">
     <data-source source="LOCAL" name="pik.issue-tracker.memory" uuid="d909b081-cc0a-4a17-8564-caaf1ac9277e">
       <driver-ref>hsqldb.remote</driver-ref>
       <jdbc-driver>org.hsqldb.jdbcDriver</jdbc-driver>
@@ -25,6 +25,15 @@
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="HSQLDB - issuetracker" uuid="15a9eb8c-8186-4b0f-b431-7cb70d27a3de">
+      <driver-ref>hsqldb.in-memory</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.hsqldb.jdbc.JDBCDriver</jdbc-driver>
+      <jdbc-url>jdbc:hsqldb:mem:issuetracker</jdbc-url>
+      <schema-pattern>PUBLIC.PUBLIC</schema-pattern>
+      <default-schemas>PUBLIC.PUBLIC</default-schemas>
       <libraries />
     </data-source>
   </component>
